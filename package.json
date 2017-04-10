@@ -11,5 +11,8 @@
   "devDependencies": {
     "string-loader": "0.0.1",
     "webpack": "^2.3.3"
+  },
+  "dependencies": {
+    "vue-stash": "^2.0.1-beta"
   }
 }
