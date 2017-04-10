@@ -1,0 +1,15 @@
+{
+  "name": "gabbys-e-store",
+  "version": "1.0.0",
+  "description": "A practice  eccommerce store ",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabby",
+  "license": "ISC",
+  "devDependencies": {
+    "string-loader": "0.0.1",
+    "webpack": "^2.3.3"
+  }
+}
