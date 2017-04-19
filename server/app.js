@@ -1,22 +1,27 @@
 const express = require('express');
 const app = express();
-const path = require('path');
 
-const appRoot = path.join(__dirname, '..');
+var products = [];
 
-const paths = {
-  indexHTML: path.join(appRoot, 'public', 'index.html'),
-  public: path.join(appRoot,'public')
-};
+const config = require('./config.js');
+require('./middleware')(app)
 
-app.use(express.static(paths.public))
-
-// require('./middleware')(app)
-
-app.get('/', function (req,res) {
-  res.sendFile(paths.indexHTML);
+app.post('/api/products', function(req,res) {
+  console.log('req.body', req.body);
+  products.push(req.body);
+  res.status(200).json(req.body);
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+
+app.get('/api/products', function(req,res) {
+  res.status(200).json(products);
+});
+
+
+app.get('/', function (req,res) {
+  res.sendFile(config.paths.indexHTML);
+});
+
+app.listen(config.port, function () {
+  console.log(`Example app listening on port ${config.port}!`);
 });
